@@ -2,8 +2,8 @@ var express = require('express');
 var app = express();
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
-// mongoose.connect('mongodb://andrey484:qwerty1234567@ds137464.mlab.com:37464/sunny_project');
-mongoose.connect('mongodb://localhost/test');
+mongoose.connect('mongodb://andrey484:qwerty1234567@ds137464.mlab.com:37464/sunny_project');
+//mongoose.connect('mongodb://localhost/test');
 var server = require('http').createServer(app);
 var io = require('socket.io')(server);
 var bodyParser = require('body-parser')
