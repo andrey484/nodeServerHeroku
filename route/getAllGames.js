@@ -207,6 +207,7 @@ router.post('/', function (req, res) {
     user.save(function (err) {
         if(err) console.log(err)
     })
+    res.send("done")
 });
 
 
