@@ -29,10 +29,10 @@ db.once('open', function() {
     // we're connected!
 });
 
-app.use(function (err, req, res) {
-    console.error(err.stack);
-    res.status(500).send('Something bad happened!');
-});
+// app.use(function (err, req, res) {
+//     console.error(err.stack);
+//     res.status(500).send('Something bad happened!');
+// });
 
 
 // views is directory for all template files
