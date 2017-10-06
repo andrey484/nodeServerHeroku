@@ -23,8 +23,8 @@
       <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="260">
-              <caret line="36" column="0" lean-forward="true" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+            <state relative-caret-position="75">
+              <caret line="5" column="2" lean-forward="false" selection-start-line="5" selection-start-column="2" selection-end-line="5" selection-end-column="2" />
               <folding />
             </state>
           </provider>
@@ -285,7 +285,7 @@
       <updated>1505408501715</updated>
       <workItem from="1505408505829" duration="5580000" />
       <workItem from="1507201113241" duration="825000" />
-      <workItem from="1507216683314" duration="28531000" />
+      <workItem from="1507216683314" duration="28669000" />
     </task>
     <task id="LOCAL-00001" summary="create 3 query">
       <created>1507246712167</created>
@@ -322,11 +322,18 @@
       <option name="project" value="LOCAL" />
       <updated>1507278250649</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="fix">
+      <created>1507278436089</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1507278436089</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="34936000" />
+    <option name="totallyTimeSpent" value="35074000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1680" y="0" width="1366" height="768" extended-state="6" />
@@ -359,9 +366,9 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="create 3 query" />
-    <MESSAGE value="fix" />
     <MESSAGE value="fix get teams" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix get teams" />
+    <MESSAGE value="fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -543,8 +550,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="36" column="0" lean-forward="true" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+        <state relative-caret-position="75">
+          <caret line="5" column="2" lean-forward="false" selection-start-line="5" selection-start-column="2" selection-end-line="5" selection-end-column="2" />
           <folding />
         </state>
       </provider>
