@@ -49,6 +49,8 @@ router.post('/', function (req, res) {
                             }
                         })
                     }
+                }else{
+                    res.send({'error': "some of parameters is undefined"})
                 }
             })
         }
