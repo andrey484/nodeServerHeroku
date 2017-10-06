@@ -36,6 +36,7 @@ router.post('/', function (req, res) {
                         user.save(function (err) {
                             if (err) console.log(err)
                         })
+                        res.send({'succes': "creqte new user"})
                     } else {
                         Model.UserModel.update({
                             userId: req.query.userId,
