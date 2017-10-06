@@ -26,25 +26,29 @@ router.post('/', function (req, res) {
             res.send({"error": "wrong name or password"})
         } else {
             Model.UserModel.find({userId: req.query.userId}, function (err, userDocs) {
-                if (docs[0] === 'undefined' || docs[0] === null) {
-                    var user = new Model.UserModel({
-                        userId: req.query.userId,
-                        teamId: docs[0].id,
-                        gameId: req.query.gameId
-                    });
-                    user.save(function (err) {
-                        if (err) console.log(err)
-                    })
-
-                } else {
-                    Model.UserModel.update({
-                        userId: req.query.userId,
-                        teamId: docs[0].id,
-                        gameId: req.query.gameId
-                    }, function (err) {
-                        if (err)
-                            console.log(err);
-                    })
+                if (docs.length != 0) {
+                    if (userDocs.length == 0) {
+                        var user = new Model.UserModel({
+                            userId: req.query.userId,
+                            teamId: docs[0].id,
+                            gameId: req.query.gameId
+                        });
+                        user.save(function (err) {
+                            if (err) console.log(err)
+                        })
+                    } else {
+                        Model.UserModel.update({
+                            userId: req.query.userId,
+                            teamId: docs[0].id,
+                            gameId: req.query.gameId
+                        }, function (err) {
+                            if (err)
+                                console.log(err);
+                            else {
+                                console.log('update')
+                            }
+                        })
+                    }
                 }
             })
         }
