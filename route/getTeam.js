@@ -26,7 +26,7 @@ router.post('/', function (req, res) {
             res.send({"error": "wrong name or password"})
         } else {
             Model.UserModel.find({userId: req.query.userId}, function (err, userDocs) {
-                if (docs.length != 0) {
+                if (docs.length > 0) {
                     if (userDocs.length == 0) {
                         var user = new Model.UserModel({
                             userId: req.query.userId,
