@@ -47,7 +47,7 @@ wss.on('connection', function (ws) {
             case 10: {
                 let currentProgress = 0;
                 Model.TeamModel.find({id: JSON.parse(data).teamId}, function (err, docs) {
-                    if(err) console.log(err);
+                    if(docs.length == 0) ws.send('cant find team wits id')
                     currentProgress = docs[0].progress;
                     currentProgress++;
                     Model.TeamModel.update({id: JSON.parse(data).teamId}, {progress: currentProgress}, function (err) {
