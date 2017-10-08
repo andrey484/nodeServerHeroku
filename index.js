@@ -6,7 +6,8 @@ var Schema = mongoose.Schema;
 mongoose.connect('mongodb://andrey484:qwerty1234567@ds137464.mlab.com:37464/sunny_project');
 //mongoose.connect('mongodb://localhost/test');
 var server = require('http').createServer(app);
-var io = require('socket.io')(server);
+var ws = require('ws');
+var webSocket =  new ws.Server({port: 8080});
 var bodyParser = require('body-parser')
 
 app.use(bodyParser.urlencoded({extended: true}));
@@ -40,18 +41,18 @@ server.listen(app.get('port'), function (err) {
 });
 
 
-io.on('connection', function (socket) {
-    socket.on('/test1', function (data) {
-        switch (data.cmd) {
+webSocket.on('connection', function (ws) {
+    ws.on('message', function (data) {
+        switch (JSON.parse(data).cmd) {
             case 10: {
                 var currentProgress = 0;
-                Model.TeamModel.find({id: data.teamId}, function (err, docs) {
+                Model.TeamModel.find({id: JSON.parse(data).teamId}, function (err, docs) {
                     if(err) console.log(err);
                     currentProgress = docs[0].progress;
                     currentProgress++;
-                    Model.TeamModel.update({id: data.teamId}, {progress: currentProgress}, function (err) {
+                    Model.TeamModel.update({id: JSON.parse(data).teamId}, {progress: currentProgress}, function (err) {
                         if(err) console.log(err);
-                        socket.send({"cmd":10});
+                        ws.send('{"cmd":10}');
                     });
                 });
                 break;
