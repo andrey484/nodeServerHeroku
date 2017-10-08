@@ -6,8 +6,8 @@ const Schema = mongoose.Schema;
 //mongoose.connect('mongodb://andrey484:qwerty1234567@ds137464.mlab.com:37464/sunny_project');
 mongoose.connect('mongodb://localhost/test');
 const server = require('http').createServer(app);
-const SocketServer = require('ws').Server;
-const wss = new SocketServer({port:8080});
+const SocketServer = require('ws');
+const wss = new SocketServer.Server({server});
 const bodyParser = require('body-parser');
 
 app.use(bodyParser.urlencoded({extended: true}));
