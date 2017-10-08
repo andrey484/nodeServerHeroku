@@ -6,8 +6,8 @@ var Schema = mongoose.Schema;
 mongoose.connect('mongodb://andrey484:qwerty1234567@ds137464.mlab.com:37464/sunny_project');
 //mongoose.connect('mongodb://localhost/test');
 var server = require('http').createServer(app);
-var ws = require('ws');
-var webSocket =  new ws.Server({port: 8080});
+var ws = require('ws').Server;
+var wss = new ws({app});
 var bodyParser = require('body-parser')
 
 app.use(bodyParser.urlencoded({extended: true}));
@@ -41,7 +41,7 @@ server.listen(app.get('port'), function (err) {
 });
 
 
-webSocket.on('connection', function (ws) {
+wss.on('connection', function (ws) {
     ws.on('message', function (data) {
         switch (JSON.parse(data).cmd) {
             case 10: {
