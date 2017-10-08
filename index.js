@@ -41,7 +41,7 @@ server.listen(app.get('port'), function (err) {
 });
 
 
-wss.on('socketCommands', function (ws) {
+wss.on('connection', function (ws) {
     ws.on('message', function (data) {
         switch (JSON.parse(data).cmd) {
             case 10: {
@@ -55,6 +55,11 @@ wss.on('socketCommands', function (ws) {
                         ws.send('{"cmd":10}');
                     });
                 });
+                // setInterval(() => {
+                //     wss.clients.forEach((client) => {
+                //         client.send(new Date().toTimeString());
+                //     });
+                // }, 1000);
                 break;
             }
             case 20:{
@@ -70,7 +75,7 @@ wss.on('socketCommands', function (ws) {
                 break;
             }
             default:{
-                socket.send({error: 'undefined command'})
+                ws.send('{error: "undefined command"}')
             }
         }
     })
