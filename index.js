@@ -47,11 +47,14 @@ wss.on('connection', function (ws) {
             case 10: {
                 let currentProgress = 0;
                 Model.TeamModel.find({id: JSON.parse(data).teamId}, function (err, docs) {
-                    if(docs.length == 0) ws.send('cant find team wits id')
+                    if (docs.length == 0) {
+                        ws.send('cant find team wits id');
+                        return;
+                    }
                     currentProgress = docs[0].progress;
                     currentProgress++;
                     Model.TeamModel.update({id: JSON.parse(data).teamId}, {progress: currentProgress}, function (err) {
-                        if(err) console.log(err);
+                        if (err) console.log(err);
                         ws.send('{"cmd":10}');
                     });
                 });
@@ -62,19 +65,19 @@ wss.on('connection', function (ws) {
                 // }, 1000);
                 break;
             }
-            case 20:{
+            case 20: {
 
                 break;
             }
-            case 30:{
+            case 30: {
 
                 break;
             }
-            case 40:{
+            case 40: {
 
                 break;
             }
-            default:{
+            default: {
                 ws.send('{error: "undefined command"}')
             }
         }
