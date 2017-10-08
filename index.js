@@ -17,6 +17,7 @@ app.use(bodyParser.json());
 const getAllGames = require('./route/getAllGames');
 const getTeam = require('./route/getTeam');
 const getUserById = require('./route/getUserById');
+const getTeamByGameId = require('./route/getAllTeamsByGameId');
 
 
 app.set('port', (process.env.PORT || 5000));
@@ -24,6 +25,7 @@ app.use(express.static(__dirname + '/public'));
 app.use('/getAllGames', getAllGames);
 app.use('/getTeam', getTeam);
 app.use('/getUserById', getUserById);
+app.use('/getTeamByGameId', getTeamByGameId);
 
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
@@ -55,33 +57,63 @@ wss.on('connection', function (ws) {
                     currentProgress++;
                     Model.TeamModel.update({id: JSON.parse(data).teamId}, {progress: currentProgress}, function (err) {
                         if (err) console.log(err);
-                        ws.send('{"cmd":10}');
+                        let json = {"cmd": 10};
+                        ws.send(json.toString());
                     });
                 });
-                // setInterval(() => {
-                //     wss.clients.forEach((client) => {
-                //         client.send(new Date().toTimeString());
-                //     });
-                // }, 1000);
                 break;
             }
             case 20: {
-
+                let newHint = new Model.HintModel({
+                    teamId: JSON.parse(data).teamId,
+                    type: 1,
+                    text: JSON.parse(data).text
+                });
+                newHint.save(function (err) {
+                    if (err)
+                        console.log(err);
+                });
+                let json = {
+                    "cmd": 20,
+                    "teamId": JSON.parse(data).teamId
+                };
+                ws.send(json.toString());
                 break;
             }
             case 30: {
-
+                Model.TeamModel.update({id: JSON.parse(data).teamId}, {time: JSON.parse(data).time}, function (err) {
+                    if (err) console.log(err);
+                    let json = {
+                        "cmd": 30,
+                        "teamId": JSON.parse(data).teamId
+                    };
+                    ws.send(json.toString());
+                });
                 break;
             }
             case 40: {
-
+                Model.TeamModel.find({id: JSON.parse(data).teamId}, function (err, docs) {
+                    if (err) console.log(err);
+                    if (docs.length == 0) {
+                        ws.send('cant find team wits id');
+                        return;
+                    }
+                    let json = {
+                        "cmd": 40,
+                        "teamId": JSON.parse(data).teamId,
+                        "time": docs[0].time
+                    };
+                    ws.send(json)
+                });
                 break;
             }
             default: {
-                ws.send('{error: "undefined command"}')
+                ws.send({error: "undefined command"}.toString())
             }
         }
     })
+
+    ws.on('close', () => ws.send({closeEvent: "client disconnected"}.toString()));
 });
 
 module.exports = server;

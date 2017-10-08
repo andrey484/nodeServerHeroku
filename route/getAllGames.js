@@ -1,7 +1,7 @@
-var express = require('express');
-var router = express.Router();
-var mongoose = require('mongoose');
-var Model = require('./../model/model');
+const express = require('express');
+const router = express.Router();
+const mongoose = require('mongoose');
+const Model = require('./../model/model');
 
 
 router.post('/', function (req, res) {

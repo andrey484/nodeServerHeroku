@@ -1,7 +1,7 @@
-var mongoose = require('mongoose')
-var Schema = mongoose.Schema;
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
-var gamesSchema = new Schema({
+const gamesSchema = new Schema({
     gameId: String,
     name: String,
     description: String,
@@ -11,22 +11,28 @@ var gamesSchema = new Schema({
     task: [Schema.Types.Mixed]
 });
 
-var teamSchema = new Schema({
+const teamSchema = new Schema({
     id: String,
     gameId: String,
     name: String,
     teamPassword: String,
     countOfPlayers: Number,
     progress: Number,
-    hintProgress: Number
+    hintProgress: Number,
+    time: Number
 });
 
-var userSchema = new Schema({
+const userSchema = new Schema({
     userId: String,
     teamId: String,
     gameId: String
 });
 
+const hintSchema = new Schema({
+    teamId: String,
+    type: Number,
+    text: String
+});
 
 module.exports.GamesModel = mongoose.model('games', gamesSchema);
 module.exports.GamesSchema = gamesSchema;
@@ -36,3 +42,6 @@ module.exports.TeamSchema = teamSchema;
 
 module.exports.UserModel = mongoose.model('user', userSchema);
 module.exports.UserSchema = userSchema;
+
+module.exports.HintModel = mongoose.model('hint', hintSchema);
+module.exports.HintSchema = hintSchema;

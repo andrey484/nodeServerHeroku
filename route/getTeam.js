@@ -1,6 +1,6 @@
-var express = require('express')
-var router = express();
-var Model = require('./../model/model');
+const express = require('express')
+const router = express();
+const Model = require('./../model/model');
 
 router.post('/', function (req, res) {
     if (
@@ -9,7 +9,7 @@ router.post('/', function (req, res) {
         (typeof req.query.gameId === 'undefined' || req.query.gameId === null) ||
         (typeof req.query.userId === 'undefined' || req.query.userId === null)
     ) {
-        var error = {"error": "name or pass undefined or null"};
+        const error = {"error": "name or pass undefined or null"};
         res.json(error);
         return;
     }
@@ -28,7 +28,7 @@ router.post('/', function (req, res) {
             Model.UserModel.find({userId: req.query.userId}, function (err, userDocs) {
                 if (docs.length > 0) {
                     if (userDocs.length == 0) {
-                        var user = new Model.UserModel({
+                        let user = new Model.UserModel({
                             userId: req.query.userId,
                             teamId: docs[0].id,
                             gameId: req.query.gameId
@@ -36,7 +36,7 @@ router.post('/', function (req, res) {
                         user.save(function (err) {
                             if (err) console.log(err)
                         });
-                        var jsonTmp = {
+                        let jsonTmp = {
                             id: docs[0].id,
                             gameId: docs[0].gameId,
                             name: docs[0].name,
@@ -57,7 +57,7 @@ router.post('/', function (req, res) {
                                 res.send({'succes': "update"})
                             }
                         });
-                        var json = {
+                        let json = {
                             id: docs[0].id,
                             gameId: docs[0].gameId,
                             name: docs[0].name,
