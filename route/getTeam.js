@@ -9,7 +9,7 @@ router.post('/', function (req, res) {
         (typeof req.query.gameId === 'undefined' || req.query.gameId === null) ||
         (typeof req.query.userId === 'undefined' || req.query.userId === null)
     ) {
-        var error = {"error": "name or pass undefined or null"}
+        var error = {"error": "name or pass undefined or null"};
         res.json(error);
         return;
     }
@@ -35,10 +35,18 @@ router.post('/', function (req, res) {
                         });
                         user.save(function (err) {
                             if (err) console.log(err)
-                        })
+                        });
+                        var jsonTmp = {
+                            id: docs[0].id,
+                            gameId: docs[0].gameId,
+                            name: docs[0].name,
+                            teamPassword: docs[0].teamPassword,
+                            countOfPlayers: docs[0].countOfPlayers,
+                        };
+                        res.json(jsonTmp);
                         res.send({'succes': "creqte new user"})
                     } else {
-                        Model.UserModel.update({
+                        Model.UserModel.update({userId: req.query.userId}, {
                             userId: req.query.userId,
                             teamId: docs[0].id,
                             gameId: req.query.gameId
@@ -48,7 +56,15 @@ router.post('/', function (req, res) {
                             else {
                                 res.send({'succes': "update"})
                             }
-                        })
+                        });
+                        var json = {
+                            id: docs[0].id,
+                            gameId: docs[0].gameId,
+                            name: docs[0].name,
+                            teamPassword: docs[0].teamPassword,
+                            countOfPlayers: docs[0].countOfPlayers,
+                        };
+                        res.json(json);
                     }
                 }else{
                     res.send({'error': "some of parameters is undefined"})
