@@ -3,7 +3,7 @@ const router = express.Router();
 const Model = require('./../model/model');
 
 
-router.post('/', function (res, req) {
+router.post('/', function (req, res) {
     if (typeof req.query.gameId === undefined || req.query.gameId === null) {
         let error = {'error': 'gameId undefined or null'}
         res.json(error);
@@ -18,16 +18,12 @@ router.post('/', function (res, req) {
             res.json({'error': 'team with current gameId not found'})
             return;
         }
-        const json = {
-            id: docs[0].id,
-            gameId: docs[0].gameId,
-            name: docs[0].name,
-            teamPassword: docs[0].teamPassword,
-            countOfPlayers: docs[0].countOfPlayers,
-            progress: docs[0].progress,
-            hintProgress: docs[0].hintProgress
-        };
-        res.json(json);
+        let json = {};
+
+        for(let i = 0; i < docs.length; i++) {
+            json[i] = docs[i];
+        }
+        res.json(json)
     })
 });
 
