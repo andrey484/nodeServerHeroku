@@ -3,7 +3,7 @@ const router = express.Router();
 const Model = require('./../model/model');
 
 
-router.post('/', function (req, res) {
+router.get('/', function (req, res) {
     if (typeof req.query.gameId === undefined || req.query.gameId === null) {
         let error = {'error': 'gameId undefined or null'}
         res.json(error);
