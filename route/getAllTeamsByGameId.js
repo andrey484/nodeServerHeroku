@@ -18,12 +18,12 @@ router.get('/', function (req, res) {
             res.json({'error': 'team with current gameId not found'})
             return;
         }
-        let json = {};
+        let data = [];
 
         for(let i = 0; i < docs.length; i++) {
-            json[i] = docs[i];
+            data.push(docs[i]);
         }
-        res.json(json)
+        res.json(JSON.stringify(data))
     })
 });
 
