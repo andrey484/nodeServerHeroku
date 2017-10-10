@@ -18,6 +18,7 @@ const getAllGames = require('./route/getAllGames');
 const getTeam = require('./route/getTeam');
 const getUserById = require('./route/getUserById');
 const getTeamByGameId = require('./route/getAllTeamsByGameId');
+const getHintByTeamId = require('./route/getHintByTeamId');
 
 
 app.set('port', (process.env.PORT || 5000));
@@ -26,6 +27,7 @@ app.use('/getAllGames', getAllGames);
 app.use('/getTeam', getTeam);
 app.use('/getUserById', getUserById);
 app.use('/getTeamByGameId', getTeamByGameId);
+app.use('/getHintByTeamId', getHintByTeamId);
 
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));

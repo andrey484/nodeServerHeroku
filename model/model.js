@@ -43,5 +43,5 @@ module.exports.TeamSchema = teamSchema;
 module.exports.UserModel = mongoose.model('user', userSchema);
 module.exports.UserSchema = userSchema;
 
-module.exports.HintModel = mongoose.model('hint', hintSchema);
+module.exports.HintModel = mongoose.model('hints', hintSchema);
 module.exports.HintSchema = hintSchema;
