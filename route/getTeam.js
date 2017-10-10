@@ -54,7 +54,7 @@ router.post('/', function (req, res) {
                             if (err)
                                 console.log(err);
                             else {
-                                res.send({'succes': "update"})
+                                res.send('succes')
                             }
                         });
                         let json = {
