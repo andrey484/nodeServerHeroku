@@ -51,11 +51,13 @@ router.post('/', function (req, res) {
                             teamId: docs[0].id,
                             gameId: req.query.gameId
                         }, function (err) {
-                            if (err)
+                            if (err) {
                                 console.log(err);
-                            else {
-                                res.send('succes')
+                                return;
                             }
+                            const error = {"ok": "succes"};
+                            res.json(error);
+
                         });
                         let json = {
                             id: docs[0].id,
@@ -66,7 +68,7 @@ router.post('/', function (req, res) {
                         };
                         res.json(json);
                     }
-                }else{
+                } else {
                     res.send({'error': "some of parameters is undefined"})
                 }
             })
