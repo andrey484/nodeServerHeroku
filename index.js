@@ -112,7 +112,13 @@ wss.on('connection', function (ws) {
             }
         }
     })
-    //ws.on('close', () => ws.send({closeEvent: "client disconnected"}.toString()));
+    ws.on('close', () => console.log('Client disconnected'));
 });
+
+setInterval(()=>{
+    wss.clients.forEach((client) =>{
+        client.send(new Date().toTimeString())
+    })
+}, 10000);
 
 module.exports = server;
