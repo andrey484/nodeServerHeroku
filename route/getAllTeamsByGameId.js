@@ -23,7 +23,8 @@ router.get('/', function (req, res) {
         for(let i = 0; i < docs.length; i++) {
             data.push(docs[i]);
         }
-        res.send(data)
+        if (req.session.state)
+            res.send(data)
     })
 });
 
