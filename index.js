@@ -115,7 +115,7 @@ wss.on('connection', function (ws) {
             }
         }
     })
-    //ws.on('close', () => console.log('Client disconnected'));
+    ws.on('close', () => console.log('Client disconnected'));
 });
 
 setInterval(()=>{
