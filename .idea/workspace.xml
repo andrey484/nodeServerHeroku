@@ -53,8 +53,8 @@
       <file leaf-file-name="getTeam.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/route/getTeam.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="66" column="33" lean-forward="false" selection-start-line="66" selection-start-column="33" selection-end-line="66" selection-end-column="33" />
+            <state relative-caret-position="360">
+              <caret line="66" column="55" lean-forward="true" selection-start-line="66" selection-start-column="55" selection-end-line="66" selection-end-column="55" />
               <folding />
             </state>
           </provider>
@@ -268,7 +268,7 @@
       <workItem from="1505408505829" duration="5580000" />
       <workItem from="1507201113241" duration="825000" />
       <workItem from="1507216683314" duration="62216000" />
-      <workItem from="1507587872188" duration="7607000" />
+      <workItem from="1507587872188" duration="7765000" />
     </task>
     <task id="LOCAL-00001" summary="create 3 query">
       <created>1507246712167</created>
@@ -508,11 +508,18 @@
       <option name="project" value="LOCAL" />
       <updated>1507633699067</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="create 4 commands for socket and create query all teams by game id">
+      <created>1507634046324</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1507634046324</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="76228000" />
+    <option name="totallyTimeSpent" value="76386000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -807,8 +814,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/route/getTeam.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="66" column="33" lean-forward="false" selection-start-line="66" selection-start-column="33" selection-end-line="66" selection-end-column="33" />
+        <state relative-caret-position="360">
+          <caret line="66" column="55" lean-forward="true" selection-start-line="66" selection-start-column="55" selection-end-line="66" selection-end-column="55" />
           <folding />
         </state>
       </provider>

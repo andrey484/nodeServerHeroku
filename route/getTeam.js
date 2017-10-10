@@ -64,7 +64,7 @@ router.post('/', function (req, res) {
                             teamPassword: docs[0].teamPassword,
                             countOfPlayers: docs[0].countOfPlayers,
                         };
-                        res.send(json);
+                        res.send(JSON.stringify(json));
                     }
                 } else {
                     res.send({'error': "some of parameters is undefined"})
