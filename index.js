@@ -61,7 +61,9 @@ wss.on('connection', function (ws) {
                     Model.TeamModel.update({id: JSON.parse(data).teamId}, {progress: currentProgress}, function (err) {
                         if (err) console.log(err);
                         let json = {"cmd": 10};
-                        ws.send(JSON.stringify(json));
+                        wss.clients.forEach((client) =>{
+                            client.send(JSON.stringify(json));
+                        })
                     });
                 });
                 break;
