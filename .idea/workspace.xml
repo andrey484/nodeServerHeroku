@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4f57eaeb-066c-4a64-ad70-3f506397476f" name="Default" comment="">
+    <list default="true" id="4f57eaeb-066c-4a64-ad70-3f506397476f" name="Default" comment="create 4 commands for socket and create query all teams by game id">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.js" afterPath="$PROJECT_DIR$/index.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -22,8 +23,8 @@
       <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1117">
-              <caret line="112" column="9" lean-forward="true" selection-start-line="112" selection-start-column="9" selection-end-line="112" selection-end-column="9" />
+            <state relative-caret-position="218">
+              <caret line="105" column="49" lean-forward="true" selection-start-line="105" selection-start-column="49" selection-end-line="105" selection-end-column="49" />
               <folding />
             </state>
           </provider>
@@ -267,7 +268,7 @@
       <workItem from="1505408505829" duration="5580000" />
       <workItem from="1507201113241" duration="825000" />
       <workItem from="1507216683314" duration="62216000" />
-      <workItem from="1507587872188" duration="12487000" />
+      <workItem from="1507587872188" duration="13285000" />
     </task>
     <task id="LOCAL-00001" summary="create 3 query">
       <created>1507246712167</created>
@@ -549,11 +550,18 @@
       <option name="project" value="LOCAL" />
       <updated>1507637716598</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="create 4 commands for socket and create query all teams by game id">
+      <created>1507640481087</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1507640481087</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="81108000" />
+    <option name="totallyTimeSpent" value="81906000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -742,12 +750,19 @@
           <properties />
           <option name="timeStamp" value="163" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/index.js</url>
+          <line>63</line>
+          <properties />
+          <option name="timeStamp" value="167" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="167" />
+      <option name="time" value="168" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="NodeJSConfigurationType">
         <watch expression="req.query.gameId" language="JavaScript" />
+        <watch expression="JSON.stringify(json)" language="JavaScript" />
       </configuration>
     </watches-manager>
   </component>
@@ -885,8 +900,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1117">
-          <caret line="112" column="9" lean-forward="true" selection-start-line="112" selection-start-column="9" selection-end-line="112" selection-end-column="9" />
+        <state relative-caret-position="218">
+          <caret line="105" column="49" lean-forward="true" selection-start-line="105" selection-start-column="49" selection-end-line="105" selection-end-column="49" />
           <folding />
         </state>
       </provider>

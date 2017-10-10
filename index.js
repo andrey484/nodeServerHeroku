@@ -58,7 +58,7 @@ wss.on('connection', function (ws) {
                     Model.TeamModel.update({id: JSON.parse(data).teamId}, {progress: currentProgress}, function (err) {
                         if (err) console.log(err);
                         let json = {"cmd": 10};
-                        ws.send(json.toString());
+                        ws.send(JSON.stringify(json));
                     });
                 });
                 break;
@@ -77,7 +77,7 @@ wss.on('connection', function (ws) {
                     "cmd": 20,
                     "teamId": JSON.parse(data).teamId
                 };
-                ws.send(json.toString());
+                ws.send(JSON.stringify(json));
                 break;
             }
             case 30: {
@@ -87,7 +87,7 @@ wss.on('connection', function (ws) {
                         "cmd": 30,
                         "teamId": JSON.parse(data).teamId
                     };
-                    ws.send(json.toString());
+                    ws.send(JSON.stringify(json));
                 });
                 break;
             }
@@ -103,7 +103,7 @@ wss.on('connection', function (ws) {
                         "teamId": JSON.parse(data).teamId,
                         "time": docs[0].time
                     };
-                    ws.send(json)
+                    ws.send(JSON.stringify(json))
                 });
                 break;
             }
