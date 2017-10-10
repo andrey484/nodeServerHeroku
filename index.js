@@ -46,6 +46,7 @@ server.listen(app.get('port'), function (err) {
 
 
 wss.on('connection', function (ws) {
+    console.log("connect to socket");
     ws.on('message', function (data) {
         switch (JSON.parse(data).cmd) {
             case 10: {

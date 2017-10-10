@@ -22,7 +22,7 @@ router.post('/', function (req, res) {
             console.log(err);
             return;
         }
-        if (docs[0].length == 0) {
+        if (docs[0].length === undefined) {
             res.send({"error": "wrong name or password"});
             return;
         }
