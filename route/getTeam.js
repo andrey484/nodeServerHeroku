@@ -72,7 +72,6 @@ router.post('/', function (req, res) {
                 res.send({'error': "some of parameters is undefined"})
             }
         })
-
     })
 });
 
