@@ -43,8 +43,8 @@ router.post('/', function (req, res) {
                             teamPassword: docs[0].teamPassword,
                             countOfPlayers: docs[0].countOfPlayers,
                         };
-                        res.json(jsonTmp);
-                        res.send({'succes': "creqte new user"})
+                        if (req.session.state)
+                            res.json(jsonTmp);
                     } else {
                         Model.UserModel.update({userId: req.query.userId}, {
                             userId: req.query.userId,
@@ -53,12 +53,12 @@ router.post('/', function (req, res) {
                         }, function (err) {
                             if (err) {
                                 console.log(err);
-                                return;
                             }
-                            const error = {"ok": "succes"};
+                        });
+                        const error = {"ok": "succes"};
+                        if (req.session.state)
                             res.json(error);
 
-                        });
                         let json = {
                             id: docs[0].id,
                             gameId: docs[0].gameId,
@@ -66,7 +66,8 @@ router.post('/', function (req, res) {
                             teamPassword: docs[0].teamPassword,
                             countOfPlayers: docs[0].countOfPlayers,
                         };
-                        res.json(json);
+                        if (req.session.state)
+                            res.json(json);
                     }
                 } else {
                     res.send({'error': "some of parameters is undefined"})
