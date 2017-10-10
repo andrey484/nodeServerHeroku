@@ -23,7 +23,7 @@
       <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-585">
+            <state relative-caret-position="-405">
               <caret line="27" column="25" lean-forward="false" selection-start-line="27" selection-start-column="10" selection-end-line="27" selection-end-column="25" />
               <folding />
             </state>
@@ -43,8 +43,8 @@
       <file leaf-file-name="getAllTeamsByGameId.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/route/getAllTeamsByGameId.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="232">
-              <caret line="25" column="38" lean-forward="true" selection-start-line="25" selection-start-column="38" selection-end-line="25" selection-end-column="38" />
+            <state relative-caret-position="277">
+              <caret line="28" column="0" lean-forward="true" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -269,7 +269,7 @@
       <workItem from="1505408505829" duration="5580000" />
       <workItem from="1507201113241" duration="825000" />
       <workItem from="1507216683314" duration="62216000" />
-      <workItem from="1507587872188" duration="4702000" />
+      <workItem from="1507587872188" duration="5558000" />
     </task>
     <task id="LOCAL-00001" summary="create 3 query">
       <created>1507246712167</created>
@@ -467,11 +467,18 @@
       <option name="project" value="LOCAL" />
       <updated>1507592338431</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="create 4 commands for socket and create query all teams by game id">
+      <created>1507593078490</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1507593078490</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="73323000" />
+    <option name="totallyTimeSpent" value="74179000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -758,7 +765,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-585">
+        <state relative-caret-position="-405">
           <caret line="27" column="25" lean-forward="false" selection-start-line="27" selection-start-column="10" selection-end-line="27" selection-end-column="25" />
           <folding />
         </state>
@@ -766,8 +773,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/route/getAllTeamsByGameId.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
-          <caret line="25" column="38" lean-forward="true" selection-start-line="25" selection-start-column="38" selection-end-line="25" selection-end-column="38" />
+        <state relative-caret-position="277">
+          <caret line="28" column="0" lean-forward="true" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
           <folding />
         </state>
       </provider>
