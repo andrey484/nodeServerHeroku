@@ -6,7 +6,7 @@ const Model = require('./../model/model');
 router.get('/', function (req, res) {
     if (typeof req.query.gameId === undefined || req.query.gameId === null) {
         let error = {'error': 'gameId undefined or null'}
-        res.send(error);
+        res.json(error);
         return;
     }
     Model.TeamModel.find({gameId: req.query.gameId}, function (err, docs) {
@@ -23,8 +23,7 @@ router.get('/', function (req, res) {
         for(let i = 0; i < docs.length; i++) {
             data.push(docs[i]);
         }
-        if (req.session.state)
-            res.send(data)
+        res.json(data)
     })
 });
 
