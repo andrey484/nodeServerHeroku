@@ -6,7 +6,7 @@ const gamesSchema = new Schema({
     name: String,
     description: String,
     backgroundUrl: String,
-    photoUrl: String,
+    photoUrl: { data: Buffer, contentType: String },
     countOfTeams: Number,
     task: [Schema.Types.Mixed]
 });

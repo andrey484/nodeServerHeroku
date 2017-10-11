@@ -3,8 +3,8 @@ const app = express();
 const mongoose = require('mongoose');
 const Model = require('./model/model');
 const Schema = mongoose.Schema;
-mongoose.connect('mongodb://andrey484:qwerty1234567@ds137464.mlab.com:37464/sunny_project');
-//mongoose.connect('mongodb://localhost/test');
+//mongoose.connect('mongodb://andrey484:qwerty1234567@ds137464.mlab.com:37464/sunny_project');
+mongoose.connect('mongodb://localhost/test');
 const server = require('http').createServer(app);
 const SocketServer = require('ws');
 const wss = new SocketServer.Server({server});
@@ -19,6 +19,7 @@ const getTeam = require('./route/getTeam');
 const getUserById = require('./route/getUserById');
 const getTeamByGameId = require('./route/getAllTeamsByGameId');
 const getHintByTeamId = require('./route/getHintByTeamId');
+const uploadPicture = require('./route/uploadPicture')
 
 
 app.set('port', (process.env.PORT || 5000));
@@ -28,6 +29,7 @@ app.use('/getTeam', getTeam);
 app.use('/getUserById', getUserById);
 app.use('/getTeamByGameId', getTeamByGameId);
 app.use('/getHintByTeamId', getHintByTeamId);
+app.use('/uploadPicture', uploadPicture);
 
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
@@ -77,12 +79,15 @@ wss.on('connection', function (ws) {
                 newHint.save(function (err) {
                     if (err)
                         console.log(err);
+                    let json = {
+                        "cmd": 20,
+                        "teamId": JSON.parse(data).teamId
+                    };
+                    wss.clients.forEach((client) =>{
+                        client.send(JSON.stringify(json));
+                    });
                 });
-                let json = {
-                    "cmd": 20,
-                    "teamId": JSON.parse(data).teamId
-                };
-                ws.send(JSON.stringify(json));
+
                 break;
             }
             case 30: {
@@ -92,7 +97,9 @@ wss.on('connection', function (ws) {
                         "cmd": 30,
                         "teamId": JSON.parse(data).teamId
                     };
-                    ws.send(JSON.stringify(json));
+                    wss.clients.forEach((client) =>{
+                        client.send(JSON.stringify(json));
+                    });
                 });
                 break;
             }
@@ -108,7 +115,9 @@ wss.on('connection', function (ws) {
                         "teamId": JSON.parse(data).teamId,
                         "time": docs[0].time
                     };
-                    ws.send(JSON.stringify(json))
+                    wss.clients.forEach((client) =>{
+                        client.send(JSON.stringify(json));
+                    });
                 });
                 break;
             }
@@ -116,7 +125,7 @@ wss.on('connection', function (ws) {
                 ws.send({error: "undefined command"}.toString())
             }
         }
-    })
+    });
     ws.on('close', () => console.log('Client disconnected'));
 });
 
@@ -125,5 +134,8 @@ setInterval(()=>{
         client.send(new Date().toTimeString())
     })
 }, 10000);
+
+
+
 
 module.exports = server;
