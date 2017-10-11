@@ -9,7 +9,7 @@ router.get('/', function (req, res) {
         res.json(error);
         return;
     }
-    Model.TeamModel.find({id: req.query.gameId}, function (err, docs) {
+    Model.TeamModel.find({gameId: req.query.gameId}, function (err, docs) {
         if (err) {
             console.log(err);
             return;
