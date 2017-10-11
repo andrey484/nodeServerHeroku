@@ -137,11 +137,17 @@ wss.on('connection', function (ws) {
                     }
                     let json = {
                         "cmd": 50,
-                        "hintProgress": JSON.parse(data).hintProgress
+                        "teamId": JSON.parse(data).teamId
                     };
                     wss.clients.forEach((client) =>{
                         client.send(JSON.stringify(json));
                     })
+                });
+                break;
+            }
+            case 60:{
+                wss.clients.forEach((client) =>{
+                    client.send(JSON.stringify({"cmd": 60}));
                 });
                 break;
             }
