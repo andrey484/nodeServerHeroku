@@ -73,7 +73,7 @@ wss.on('connection', function (ws) {
             case 20: {
                 let newHint = new Model.HintModel({
                     teamId: JSON.parse(data).teamId,
-                    type: 1,
+                    type: 4,
                     text: JSON.parse(data).text
                 });
                 newHint.save(function (err) {
@@ -89,6 +89,10 @@ wss.on('connection', function (ws) {
                         client.send(JSON.stringify(json));
                     });
                 });
+
+                break;
+            }
+            case 25:{
 
                 break;
             }
