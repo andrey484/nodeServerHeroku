@@ -3,8 +3,8 @@ const app = express();
 const mongoose = require('mongoose');
 const Model = require('./model/model');
 const Schema = mongoose.Schema;
-mongoose.connect('mongodb://andrey484:qwerty1234567@ds137464.mlab.com:37464/sunny_project');
-//mongoose.connect('mongodb://localhost/test');
+//mongoose.connect('mongodb://andrey484:qwerty1234567@ds137464.mlab.com:37464/sunny_project');
+mongoose.connect('mongodb://localhost/test');
 const server = require('http').createServer(app);
 const SocketServer = require('ws');
 const wss = new SocketServer.Server({server});
@@ -77,8 +77,10 @@ wss.on('connection', function (ws) {
                     text: JSON.parse(data).text
                 });
                 newHint.save(function (err) {
-                    if (err)
+                    if (err) {
                         console.log(err);
+                        return;
+                    }
                     let json = {
                         "cmd": 20,
                         "teamId": JSON.parse(data).teamId
@@ -92,7 +94,10 @@ wss.on('connection', function (ws) {
             }
             case 30: {
                 Model.TeamModel.update({id: JSON.parse(data).teamId}, {time: JSON.parse(data).time}, function (err) {
-                    if (err) console.log(err);
+                    if (err) {
+                        console.log(err);
+                        return;
+                    }
                     let json = {
                         "cmd": 30,
                         "teamId": JSON.parse(data).teamId
@@ -105,7 +110,10 @@ wss.on('connection', function (ws) {
             }
             case 40: {
                 Model.TeamModel.find({id: JSON.parse(data).teamId}, function (err, docs) {
-                    if (err) console.log(err);
+                    if (err) {
+                        console.log(err);
+                        return;
+                    }
                     if (docs.length == 0) {
                         ws.send('cant find team wits id');
                         return;
@@ -118,6 +126,22 @@ wss.on('connection', function (ws) {
                     wss.clients.forEach((client) =>{
                         client.send(JSON.stringify(json));
                     });
+                });
+                break;
+            }
+            case 50:{
+                Model.TeamModel.update({id: JSON.parse(data).teamId}, {hintProgress: JSON.parse(data).hintProgress}, function (err) {
+                    if(err){
+                        console.log(err);
+                        return;
+                    }
+                    let json = {
+                        "cmd": 50,
+                        "hintProgress": JSON.parse(data).hintProgress
+                    };
+                    wss.clients.forEach((client) =>{
+                        client.send(JSON.stringify(json));
+                    })
                 });
                 break;
             }
