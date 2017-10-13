@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4f57eaeb-066c-4a64-ad70-3f506397476f" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/route/createHint.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.js" afterPath="$PROJECT_DIR$/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/model/model.js" afterPath="$PROJECT_DIR$/model/model.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/route/uploadPicture.js" afterPath="$PROJECT_DIR$/route/uploadPicture.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -26,8 +23,8 @@
       <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="160" column="64" lean-forward="true" selection-start-line="160" selection-start-column="64" selection-end-line="160" selection-end-column="64" />
+            <state relative-caret-position="90">
+              <caret line="6" column="2" lean-forward="false" selection-start-line="6" selection-start-column="2" selection-end-line="6" selection-end-column="2" />
               <folding />
             </state>
           </provider>
@@ -90,8 +87,8 @@
         <option value="$PROJECT_DIR$/route/getAllTeamsByGameId.js" />
         <option value="$PROJECT_DIR$/route/uploadPicture.js" />
         <option value="$PROJECT_DIR$/model/model.js" />
-        <option value="$PROJECT_DIR$/index.js" />
         <option value="$PROJECT_DIR$/route/createHint.js" />
+        <option value="$PROJECT_DIR$/index.js" />
       </list>
     </option>
   </component>
@@ -276,14 +273,7 @@
       <workItem from="1507201113241" duration="825000" />
       <workItem from="1507216683314" duration="62216000" />
       <workItem from="1507587872188" duration="34160000" />
-      <workItem from="1507883360398" duration="4456000" />
-    </task>
-    <task id="LOCAL-00008" summary="fix error">
-      <created>1507278723449</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1507278723449</updated>
+      <workItem from="1507883360398" duration="4710000" />
     </task>
     <task id="LOCAL-00009" summary="fix error">
       <created>1507280074232</created>
@@ -621,11 +611,18 @@
       <option name="project" value="LOCAL" />
       <updated>1507746596335</updated>
     </task>
-    <option name="localTasksCounter" value="57" />
+    <task id="LOCAL-00057" summary="create post query for hints&#10;create new socket command">
+      <created>1507895129678</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1507895129679</updated>
+    </task>
+    <option name="localTasksCounter" value="58" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="107237000" />
+    <option name="totallyTimeSpent" value="107491000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -675,7 +672,8 @@
     <MESSAGE value="create 4 commands for socket and create query all teams by game id" />
     <MESSAGE value="create get query to hints" />
     <MESSAGE value="fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix" />
+    <MESSAGE value="create post query for hints&#10;create new socket command" />
+    <option name="LAST_COMMIT_MESSAGE" value="create post query for hints&#10;create new socket command" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1041,10 +1039,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/package-lock.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-20407">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="160" column="64" lean-forward="true" selection-start-line="160" selection-start-column="64" selection-end-line="160" selection-end-column="64" />
+        <state relative-caret-position="90">
+          <caret line="6" column="2" lean-forward="false" selection-start-line="6" selection-start-column="2" selection-end-line="6" selection-end-column="2" />
           <folding />
         </state>
       </provider>
