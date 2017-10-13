@@ -3,8 +3,8 @@ const app = express();
 const mongoose = require('mongoose');
 const Model = require('./model/model');
 const Schema = mongoose.Schema;
-mongoose.connect('mongodb://andrey484:qwerty1234567@ds137464.mlab.com:37464/sunny_project');
-//mongoose.connect('mongodb://localhost/test');
+//mongoose.connect('mongodb://andrey484:qwerty1234567@ds137464.mlab.com:37464/sunny_project');
+mongoose.connect('mongodb://localhost/test');
 const server = require('http').createServer(app);
 const SocketServer = require('ws');
 const wss = new SocketServer.Server({server});
@@ -19,7 +19,8 @@ const getTeam = require('./route/getTeam');
 const getUserById = require('./route/getUserById');
 const getTeamByGameId = require('./route/getAllTeamsByGameId');
 const getHintByTeamId = require('./route/getHintByTeamId');
-const uploadPicture = require('./route/uploadPicture')
+const uploadPicture = require('./route/uploadPicture');
+const createNewHint = require('./route/createHint')
 
 
 app.set('port', (process.env.PORT || 5000));
@@ -30,6 +31,7 @@ app.use('/getUserById', getUserById);
 app.use('/getTeamByGameId', getTeamByGameId);
 app.use('/getHintByTeamId', getHintByTeamId);
 app.use('/uploadPicture', uploadPicture);
+app.use('/createNewHint', createNewHint);
 
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
@@ -150,8 +152,14 @@ wss.on('connection', function (ws) {
                 break;
             }
             case 60:{
-                wss.clients.forEach((client) =>{
-                    client.send(JSON.stringify({"cmd": 60}));
+                Model.GamesModel.update({gameId: JSON.parse(data).gameId}, {isStart: JSON.parse(data).isStart}, function(err){
+                    if(err){
+                        console.log(err);
+                        return;
+                    }
+                    wss.clients.forEach((client) =>{
+                        client.send(JSON.stringify({"cmd": 60}));
+                    });
                 });
                 break;
             }

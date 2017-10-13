@@ -1,21 +1,19 @@
 const express = require('express');
 const router = express.Router();
 const Model = require('./../model/model');
-const fs = require('fs')
+const fs = require('fs');
 
-const pathToFile = '/home/andrey/Desktop/analys_pee.jpg'
+const pathToFile = '/home/andrey/Desktop/mountain-climb-race-2_icon.png';
+
+function to_base_64(file){
+    const bitmap = fs.readFileSync(file);
+    return new Buffer(bitmap).toString('base64')
+}
 
 router.post('/', function (req, res) {
-    const file = fs.readFileSync(pathToFile)
-
-    Model.GamesModel.find({gameId: 'gameId1'}, (err, docs) =>{
-       if(err){
-           console.log(err);
-           return;
-       }
-       console.log('debug')
-    });
-    Model.GamesModel.update({gameId: 'gameId1'}, {photoUrl: file}, function (err) {
+    const file = to_base_64(pathToFile);
+    console.log(file);
+    Model.GamesModel.update({gameId: 'gameId2'}, {photoUrl: file}, function (err) {
         if(err) {
             console.log(err);
             return;

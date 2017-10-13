@@ -8,6 +8,7 @@ const gamesSchema = new Schema({
     backgroundUrl: String,
     photoUrl: { data: Buffer, contentType: String },
     countOfTeams: Number,
+    isStart: {type: Boolean, default: false},
     task: [Schema.Types.Mixed]
 });
 
