@@ -22,7 +22,11 @@ router.post('/', function (req, res) {
         if (err)
             console.log(err)
         if (docs.length == 0) {
-            res.json({'error': 'not found'});
+            newHint.save(function (err) {
+                if (err)
+                    console.log(err);
+            });
+            res.send('done');
             return;
         }
 

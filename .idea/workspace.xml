@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="4f57eaeb-066c-4a64-ad70-3f506397476f" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.js" afterPath="$PROJECT_DIR$/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/route/createHint.js" afterPath="$PROJECT_DIR$/route/createHint.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -30,7 +30,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="90">
@@ -40,11 +40,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="createHint.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="createHint.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/route/createHint.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="203">
-              <caret line="40" column="17" lean-forward="true" selection-start-line="40" selection-start-column="17" selection-end-line="40" selection-end-column="17" />
+            <state relative-caret-position="235">
+              <caret line="27" column="15" lean-forward="true" selection-start-line="27" selection-start-column="15" selection-end-line="27" selection-end-column="15" />
               <folding />
             </state>
           </provider>
@@ -97,8 +97,8 @@
         <option value="$PROJECT_DIR$/model/model.js" />
         <option value="$PROJECT_DIR$/route/uploadPicture.js" />
         <option value="$PROJECT_DIR$/route/getHintByTeamId.js" />
-        <option value="$PROJECT_DIR$/route/createHint.js" />
         <option value="$PROJECT_DIR$/index.js" />
+        <option value="$PROJECT_DIR$/route/createHint.js" />
       </list>
     </option>
   </component>
@@ -286,14 +286,7 @@
       <workItem from="1507587872188" duration="34160000" />
       <workItem from="1507883360398" duration="7112000" />
       <workItem from="1508011814520" duration="3663000" />
-      <workItem from="1508242009544" duration="6101000" />
-    </task>
-    <task id="LOCAL-00014" summary="fix">
-      <created>1507462173536</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1507462173537</updated>
+      <workItem from="1508242009544" duration="6497000" />
     </task>
     <task id="LOCAL-00015" summary="deleted socket.io,&#10;create websocket">
       <created>1507468476989</created>
@@ -631,11 +624,18 @@
       <option name="project" value="LOCAL" />
       <updated>1508248412190</updated>
     </task>
-    <option name="localTasksCounter" value="63" />
+    <task id="LOCAL-00063" summary="fix">
+      <created>1508248455000</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1508248455000</updated>
+    </task>
+    <option name="localTasksCounter" value="64" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="119657000" />
+    <option name="totallyTimeSpent" value="120053000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -693,49 +693,49 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/route/createHint.js</url>
-          <line>31</line>
+          <line>35</line>
           <properties />
           <option name="timeStamp" value="213" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/route/createHint.js</url>
-          <line>32</line>
+          <line>36</line>
           <properties />
           <option name="timeStamp" value="214" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/route/createHint.js</url>
-          <line>33</line>
+          <line>37</line>
           <properties />
           <option name="timeStamp" value="215" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/route/createHint.js</url>
-          <line>34</line>
+          <line>38</line>
           <properties />
           <option name="timeStamp" value="216" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/route/createHint.js</url>
-          <line>36</line>
+          <line>40</line>
           <properties />
           <option name="timeStamp" value="217" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/route/createHint.js</url>
-          <line>37</line>
+          <line>41</line>
           <properties />
           <option name="timeStamp" value="218" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/route/createHint.js</url>
-          <line>40</line>
+          <line>44</line>
           <properties />
           <option name="timeStamp" value="220" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/route/createHint.js</url>
-          <line>41</line>
+          <line>45</line>
           <properties />
           <option name="timeStamp" value="221" />
         </line-breakpoint>
@@ -1078,14 +1078,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/route/createHint.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="40" column="17" lean-forward="true" selection-start-line="40" selection-start-column="17" selection-end-line="40" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/model/model.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
@@ -1106,6 +1098,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="6" column="2" lean-forward="false" selection-start-line="6" selection-start-column="2" selection-end-line="6" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/route/createHint.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="235">
+          <caret line="27" column="15" lean-forward="true" selection-start-line="27" selection-start-column="15" selection-end-line="27" selection-end-column="15" />
           <folding />
         </state>
       </provider>
