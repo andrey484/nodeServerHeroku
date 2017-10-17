@@ -64,7 +64,7 @@ wss.on('connection', function (ws) {
                     Model.GamesModel.find({gameId: docs[0].gameId}, function(err, gameDocs){
                         countOfTasks = gameDocs[0].task.length;
                         currentProgress = docs[0].progress;
-                        if(currentProgress > countOfTasks)
+                        if(currentProgress >= countOfTasks)
                             currentProgress = 0;
                         else
                             currentProgress++;
