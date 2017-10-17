@@ -11,17 +11,43 @@ router.post('/', function (req, res) {
         res.json(error);
         return;
     }
-
     const newHint = new Model.HintModel({
         teamId: req.query.teamId,
         type: req.query.type,
         text: req.query.text
     });
-    newHint.save(function (err) {
+    let data = [];
+    let flag = false;
+    Model.HintModel.find({teamId: req.query.teamId}, function (err, docs) {
         if (err)
-            console.log(err);
+            console.log(err)
+        if (docs.length == 0) {
+            res.json({'error': 'not found'});
+            return;
+        }
+
+        for (let i = 0; i < docs.length; i++) {
+            data.push(docs[i])
+        }
+        for(let i = 0; i < data.length;i++){
+            if (data[i].text == req.query.text) {
+                res.json({'error': 'hint already exist'})
+                return;
+            }
+            else {
+                flag = true;
+            }
+        }
+        if(flag){
+            newHint.save(function (err) {
+                if (err)
+                    console.log(err);
+            });
+            res.send('done');
+        }
     });
-    res.send('done');
+
 });
+
 
 module.exports = router;

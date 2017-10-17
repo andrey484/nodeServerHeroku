@@ -3,8 +3,8 @@ const app = express();
 const mongoose = require('mongoose');
 const Model = require('./model/model');
 const Schema = mongoose.Schema;
-mongoose.connect('mongodb://andrey484:qwerty1234567@ds137464.mlab.com:37464/sunny_project');
-//mongoose.connect('mongodb://localhost/test');
+//mongoose.connect('mongodb://andrey484:qwerty1234567@ds137464.mlab.com:37464/sunny_project');
+mongoose.connect('mongodb://localhost/test');
 const server = require('http').createServer(app);
 const SocketServer = require('ws');
 const wss = new SocketServer.Server({server});
@@ -55,19 +55,26 @@ wss.on('connection', function (ws) {
         switch (JSON.parse(data).cmd) {
             case 10: {
                 let currentProgress = 0;
+                let countOfTasks = 0;
                 Model.TeamModel.find({id: JSON.parse(data).teamId}, function (err, docs) {
                     if (docs.length == 0) {
                         ws.send('cant find team wits id');
                         return;
                     }
-                    currentProgress = docs[0].progress;
-                    currentProgress++;
-                    Model.TeamModel.update({id: JSON.parse(data).teamId}, {progress: currentProgress}, function (err) {
-                        if (err) console.log(err);
-                        let json = {"cmd": 10};
-                        wss.clients.forEach((client) =>{
-                            client.send(JSON.stringify(json));
-                        })
+                    Model.GamesModel.find({gameId: docs[0].gameId}, function(err, gameDocs){
+                        countOfTasks = gameDocs[0].task.length;
+                        currentProgress = docs[0].progress;
+                        if(currentProgress > countOfTasks)
+                            currentProgress = 0;
+                        else
+                            currentProgress++;
+                        Model.TeamModel.update({id: JSON.parse(data).teamId}, {progress: currentProgress}, function (err) {
+                            if (err) console.log(err);
+                            let json = {"cmd": 10};
+                            wss.clients.forEach((client) =>{
+                                client.send(JSON.stringify(json));
+                            })
+                        });
                     });
                 });
                 break;
