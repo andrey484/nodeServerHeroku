@@ -3,8 +3,8 @@ const app = express();
 const mongoose = require('mongoose');
 const Model = require('./model/model');
 const Schema = mongoose.Schema;
-mongoose.connect('mongodb://andrey484:qwerty1234567@ds137464.mlab.com:37464/sunny_project');
-//mongoose.connect('mongodb://localhost/test');
+//mongoose.connect('mongodb://andrey484:qwerty1234567@ds137464.mlab.com:37464/sunny_project');
+mongoose.connect('mongodb://localhost/test');
 const server = require('http').createServer(app);
 const SocketServer = require('ws');
 const wss = new SocketServer.Server({server});
@@ -64,7 +64,7 @@ wss.on('connection', function (ws) {
                     Model.GamesModel.find({gameId: docs[0].gameId}, function(err, gameDocs){
                         countOfTasks = gameDocs[0].task.length;
                         currentProgress = docs[0].progress;
-                        if(currentProgress >= countOfTasks)
+                        if(currentProgress >= countOfTasks - 1)
                             currentProgress = 0;
                         else
                             currentProgress++;
