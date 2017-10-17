@@ -101,10 +101,6 @@ wss.on('connection', function (ws) {
 
                 break;
             }
-            case 25:{
-
-                break;
-            }
             case 30: {
                 Model.TeamModel.update({id: JSON.parse(data).teamId}, {time: JSON.parse(data).time}, function (err) {
                     if (err) {
@@ -167,6 +163,20 @@ wss.on('connection', function (ws) {
                     wss.clients.forEach((client) =>{
                         client.send(JSON.stringify({"cmd": 60}));
                     });
+                });
+                break;
+            }
+            case 70:{
+                Model.TeamModel.find({id: JSON.parse(data).teamId}, function(err, docs){
+                    if(err)
+                        console.log(err);
+                    let json = {
+                        "cmd": 70,
+                        "name": docs[0].name
+                    };
+                    wss.clients.forEach((client) =>{
+                        client.send(JSON.stringify(json));
+                    })
                 });
                 break;
             }
