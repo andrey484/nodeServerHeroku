@@ -3,8 +3,8 @@ const app = express();
 const mongoose = require('mongoose');
 const Model = require('./model/model');
 const Schema = mongoose.Schema;
-mongoose.connect('mongodb://andrey484:qwerty1234567@ds137464.mlab.com:37464/sunny_project');
-//mongoose.connect('mongodb://localhost/test');
+//mongoose.connect('mongodb://andrey484:qwerty1234567@ds137464.mlab.com:37464/sunny_project');
+mongoose.connect('mongodb://localhost/test');
 const server = require('http').createServer(app);
 const SocketServer = require('ws');
 const wss = new SocketServer.Server({server});
@@ -174,9 +174,14 @@ wss.on('connection', function (ws) {
                         "cmd": 70,
                         "name": docs[0].name
                     };
+                    Model.HintModel.deleteMany({}, function (err) {
+                        if(err)
+                            console.log(err);
+                    })
                     wss.clients.forEach((client) =>{
                         client.send(JSON.stringify(json));
                     })
+
                 });
                 break;
             }
