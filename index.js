@@ -10,8 +10,8 @@ const SocketServer = require('ws');
 const wss = new SocketServer.Server({server});
 const bodyParser = require('body-parser');
 
-app.use(bodyParser.urlencoded({extended: true}));
-app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}, {limit: '10mb'}));
+app.use(bodyParser.json({limit: '50mb'}));
 
 
 const getAllGames = require('./route/getAllGames');
@@ -20,7 +20,8 @@ const getUserById = require('./route/getUserById');
 const getTeamByGameId = require('./route/getAllTeamsByGameId');
 const getHintByTeamId = require('./route/getHintByTeamId');
 const uploadPicture = require('./route/uploadPicture');
-const createNewHint = require('./route/createHint')
+const createNewHint = require('./route/createHint');
+const uploadJson = require('./route/uploadJson');
 
 
 app.set('port', (process.env.PORT || 5000));
@@ -32,6 +33,7 @@ app.use('/getTeamByGameId', getTeamByGameId);
 app.use('/getHintByTeamId', getHintByTeamId);
 app.use('/uploadPicture', uploadPicture);
 app.use('/createNewHint', createNewHint);
+app.use('/uploadJson', uploadJson);
 
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
