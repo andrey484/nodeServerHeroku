@@ -12,7 +12,7 @@ router.post('/', function (req, res) {
             photoUrl: req.body.PhotoUrl,
             countOfTeams: req.body.CountOfTeams,
             isStart: req.body.IsStart,
-            timeForAllGame: req.body.TimeToGame,
+            //timeForAllGame: req.body.TimeToGame,
             task: req.body.Task
         });
     }catch (ex) {
