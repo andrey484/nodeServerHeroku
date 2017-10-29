@@ -3,8 +3,8 @@ const app = express();
 const mongoose = require('mongoose');
 const Model = require('./model/model');
 const Schema = mongoose.Schema;
-mongoose.connect('mongodb://andrey484:qwerty1234567@ds137464.mlab.com:37464/sunny_project');
-//mongoose.connect('mongodb://localhost/test');
+//mongoose.connect('mongodb://andrey484:qwerty1234567@ds137464.mlab.com:37464/sunny_project');
+mongoose.connect('mongodb://localhost/test');
 const server = require('http').createServer(app);
 const SocketServer = require('ws');
 const wss = new SocketServer.Server({server});
@@ -22,6 +22,7 @@ const getHintByTeamId = require('./route/getHintByTeamId');
 const uploadPicture = require('./route/uploadPicture');
 const createNewHint = require('./route/createHint');
 const uploadJson = require('./route/uploadJson');
+const uploadJsonTeam = require('./route/uploadJsonTeam');
 
 
 app.set('port', (process.env.PORT || 5000));
@@ -34,6 +35,7 @@ app.use('/getHintByTeamId', getHintByTeamId);
 app.use('/uploadPicture', uploadPicture);
 app.use('/createNewHint', createNewHint);
 app.use('/uploadJson', uploadJson);
+app.use('/uploadJsonTeam', uploadJsonTeam);
 
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
@@ -179,7 +181,7 @@ wss.on('connection', function (ws) {
                     Model.HintModel.deleteMany({}, function (err) {
                         if(err)
                             console.log(err);
-                    })
+                    });
                     wss.clients.forEach((client) =>{
                         client.send(JSON.stringify(json));
                     })

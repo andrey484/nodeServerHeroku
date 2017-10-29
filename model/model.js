@@ -9,6 +9,7 @@ const gamesSchema = new Schema({
     photoUrl: { data: Buffer, contentType: String },
     countOfTeams: Number,
     isStart: {type: Boolean, default: false},
+    timeForAllGame: Number,
     task: [Schema.Types.Mixed]
 });
 
@@ -20,7 +21,7 @@ const teamSchema = new Schema({
     countOfPlayers: Number,
     progress: Number,
     hintProgress: Number,
-    time: Number
+    color: String
 });
 
 const userSchema = new Schema({
