@@ -6,7 +6,7 @@ const gamesSchema = new Schema({
     name: String,
     description: String,
     backgroundUrl: String,
-    photoUrl: { data: Buffer, contentType: String },
+    photoUrl: String,
     countOfTeams: Number,
     isStart: {type: Boolean, default: false},
     isOver: {type: Boolean, default: false},
