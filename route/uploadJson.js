@@ -11,7 +11,7 @@ router.post('/', function (req, res) {
             photoUrl: req.body.PhotoUrl,
             countOfTeams: req.body.CountOfTeams,
             isStart: req.body.IsStart,
-            //isOver: req.Body.IsOver,
+            isOver: false,
             task: req.body.Task
         });
 
