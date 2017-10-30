@@ -189,6 +189,26 @@ wss.on('connection', function (ws) {
                 });
                 break;
             }
+            case 100:{
+                Model.GamesModel.remove({}, function (err) {
+                    if(err)
+                        console.log(err);
+                    Model.TeamModel.remove({}, function (err) {
+                        if(err)
+                            console.log(err);
+                        Model.UserModel.remove({}, function (err) {
+                            if(err)
+                                console.log(err);
+                            Model.HintModel.remove({}, function(err){
+                                if(err)
+                                    console.log(err);
+                            })
+                        })
+
+                    })
+                });
+                break;
+            }
             default: {
                 ws.send({error: "undefined command"}.toString())
             }
