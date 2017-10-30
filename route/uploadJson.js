@@ -18,8 +18,10 @@ router.post('/', function (req, res) {
         newGameModel.save((err) => {
             if (err)
                 console.log(err.message);
-            res.send("done");
-            console.log("new game added")
+            else {
+                res.send("done");
+                console.log("new game added")
+            }
         });
         console.log("done");
 });
