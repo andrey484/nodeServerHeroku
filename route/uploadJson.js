@@ -10,7 +10,7 @@ router.post('/', function (req, res) {
             backgroundUrl: req.body.BackgroundUrl,
             photoUrl: req.body.PhotoUrl,
             countOfTeams: req.body.CountOfTeams,
-            isStart: false,
+            isStart: req.body.IsStart,
             isOver: false,
             task: req.body.Task
         });
